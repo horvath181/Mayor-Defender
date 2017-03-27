@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>// nastavi premennu ended na false (hra este neskocila)
 ended = false;
+tutor = 0;
 </string>
           </argument>
         </arguments>
@@ -53,6 +54,7 @@ ended = false;
 speed = 0;
 // znici instanciu, s ktorou sa zrazil, t. j. stenu vytvorenu pri zaciatku pohybu
 with(other) instance_destroy();
+if (background_vspeed[0] == 0) image_speed = 0;
 </string>
           </argument>
         </arguments>
@@ -76,13 +78,13 @@ with(other) instance_destroy();
           <argument>
             <kind>1</kind>
             <string>// ak hra skoncila presunieme sa do uvodnej miestnosti
-if(ended) {
+if(ended &amp;&amp; tutor == 0) {
     room_goto(rm_Main);
 }
 // ak este neskoncila
 else {
 // ak sme tukli v hornej casti miestnosti
-    if(mouse_y &lt; 1020) {
+    if(mouse_y &lt; 955 &amp;&amp; (tutor == 0 || tutor == 3)) {
 // vytvor instanciu objektu obj_Bullet
         with(instance_create(x, y, obj_Bullet)) {
 // nastav tejto instancii smer a rychlost
@@ -91,7 +93,7 @@ else {
         }
     }
 // ak v dolnej casti obrazovky
-    else {
+    else if(tutor == 0 || tutor == 2) {
 // znic pripadne existujuce instancie pomocneho objektu obj_Wall
         with(obj_Wall) instance_destroy();
 // vytvor instanciu objektu obj_Wall 15px od miesta tuknutia (sirka serifa je priblizne
@@ -103,6 +105,8 @@ else {
         direction = point_direction(x, y, mouse_x, y);
 // nastavim rychlost serifovho pohybu na 5px/krok
         speed = 5;
+// spustim animaciu pohybu, ak nahodou nebola
+        image_speed = 1;
     }
 }
 </string>

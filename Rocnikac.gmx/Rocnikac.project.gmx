@@ -20,12 +20,17 @@
     <sprite>sprites\spr_Mayor</sprite>
     <sprite>sprites\spr_Death</sprite>
     <sprite>sprites\spr_Enemy</sprite>
+    <sprite>sprites\spr_barelled</sprite>
     <sprite>sprites\spr_Bullet</sprite>
     <sprite>sprites\spr_Wall</sprite>
     <sprite>sprites\spr_Btn_Play</sprite>
+    <sprite>sprites\spr_Btn_Tutorial</sprite>
     <sprite>sprites\spr_Btn_Quit</sprite>
     <sprite>sprites\spr_Star</sprite>
     <sprite>sprites\spr_End</sprite>
+    <sprite>sprites\spr_Shadow1</sprite>
+    <sprite>sprites\spr_Arr_Next</sprite>
+    <sprite>sprites\spr_Arr_Back</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bck_1</background>
@@ -42,14 +47,19 @@
     <object>objects\obj_Enemy</object>
     <object>objects\obj_Score</object>
     <object>objects\obj_Play</object>
+    <object>objects\obj_Tutorial</object>
     <object>objects\obj_Quit</object>
     <object>objects\obj_End</object>
     <object>objects\obj_Wall</object>
     <object>objects\obj_Star</object>
+    <object>objects\obj_Shadow1</object>
+    <object>objects\obj_Arr_Next</object>
+    <object>objects\obj_Arr_Back</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_Main</room>
     <room>rooms\rm_Game</room>
+    <room>rooms\rm_Tutorial</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

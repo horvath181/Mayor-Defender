@@ -53,10 +53,7 @@ with(obj_Sherif) image_speed = 0;</code>
   </views>
   <instances>
     <instance objName="obj_Score" x="32" y="32" name="inst_6E985E81" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_Arr_Next" x="672" y="650" name="inst_674749CA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_Shadow1" x="384" y="512" name="inst_F761669F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_Sherif" x="384" y="1088" name="inst_B2A0190C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_Mayor" x="384" y="864" name="inst_3660DE26" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_TutorialText" x="384" y="512" name="inst_F761669F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

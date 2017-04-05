@@ -14,6 +14,7 @@
       <sound>sound\snd_Dead3</sound>
       <sound>sound\snd_Dead4</sound>
     </sounds>
+    <sound>sound\snd_No</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_Sherif</sprite>
@@ -28,9 +29,7 @@
     <sprite>sprites\spr_Btn_Quit</sprite>
     <sprite>sprites\spr_Star</sprite>
     <sprite>sprites\spr_End</sprite>
-    <sprite>sprites\spr_Shadow1</sprite>
-    <sprite>sprites\spr_Arr_Next</sprite>
-    <sprite>sprites\spr_Arr_Back</sprite>
+    <sprite>sprites\spr_TutorialText</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bck_1</background>
@@ -52,9 +51,7 @@
     <object>objects\obj_End</object>
     <object>objects\obj_Wall</object>
     <object>objects\obj_Star</object>
-    <object>objects\obj_Shadow1</object>
-    <object>objects\obj_Arr_Next</object>
-    <object>objects\obj_Arr_Back</object>
+    <object>objects\obj_TutorialText</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_Main</room>

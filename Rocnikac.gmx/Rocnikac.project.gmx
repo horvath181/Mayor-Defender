@@ -14,14 +14,12 @@
       <sound>sound\snd_Dead3</sound>
       <sound>sound\snd_Dead4</sound>
     </sounds>
-    <sound>sound\snd_No</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_Sherif</sprite>
     <sprite>sprites\spr_Mayor</sprite>
     <sprite>sprites\spr_Death</sprite>
     <sprite>sprites\spr_Enemy</sprite>
-    <sprite>sprites\spr_barelled</sprite>
     <sprite>sprites\spr_Bullet</sprite>
     <sprite>sprites\spr_Wall</sprite>
     <sprite>sprites\spr_Btn_Play</sprite>

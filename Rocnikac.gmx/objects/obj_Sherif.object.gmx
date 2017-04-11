@@ -28,6 +28,8 @@
             <string>// nastavi premennu ended na false (hra este neskocila)
 ended = false;
 tutor = 0;
+shotCounter = 0;
+moveCounter = 0;
 </string>
           </argument>
         </arguments>
@@ -88,6 +90,7 @@ else {
 // ak sme tukli v hornej casti miestnosti alebo sme v casti tutorialu, kde sa da
 // strielat
     if(mouse_y &lt; 960 &amp;&amp; (tutor == 0 || tutor == 3)) {
+        shotCounter++;
 // vytvor instanciu objektu obj_Bullet
         with(instance_create(x, y, obj_Bullet)) {
 // nastav tejto instancii smer a rychlost
@@ -96,7 +99,7 @@ else {
         }
     }
 // ak v dolnej casti obrazovky alebo sme v casti tutorialu, kde sa da hybat
-    else if(tutor == 0 || tutor == 2) {
+    else if(mouse_y &gt;= 960 &amp;&amp; (tutor == 0 || tutor == 2)) {
 // znic pripadne existujuce instancie pomocneho objektu obj_Wall
         with(obj_Wall) instance_destroy();
 // vytvor instanciu objektu obj_Wall 15px od miesta tuknutia (sirka serifa je
@@ -110,6 +113,7 @@ else {
         speed = 5;
 // spustim animaciu pohybu, ak nahodou nebola
         image_speed = 1;
+        moveCounter++;
     }
 }
 </string>

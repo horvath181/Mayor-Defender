@@ -31,6 +31,7 @@ score = 0;
 i = 1;
 // sets score font to f_score
 draw_set_font(f_score);
+tutor = 0;
 </string>
           </argument>
         </arguments>
@@ -54,7 +55,7 @@ draw_set_font(f_score);
           <argument>
             <kind>1</kind>
             <string>// pri kazdej stovke zvysim pocet nepriatelov o 1
-if(score == i*100) {
+if(score == i*100 &amp;&amp; tutor == 0) {
     i++;
     instance_create(100, 1500, obj_Enemy);
 }

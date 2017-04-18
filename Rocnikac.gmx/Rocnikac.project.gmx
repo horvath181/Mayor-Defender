@@ -23,11 +23,14 @@
     <sprite>sprites\spr_Bullet</sprite>
     <sprite>sprites\spr_Wall</sprite>
     <sprite>sprites\spr_Btn_Play</sprite>
+    <sprite>sprites\spr_Btn_Highscore</sprite>
     <sprite>sprites\spr_Btn_Tutorial</sprite>
     <sprite>sprites\spr_Btn_Quit</sprite>
     <sprite>sprites\spr_Star</sprite>
     <sprite>sprites\spr_End</sprite>
     <sprite>sprites\spr_TutorialText</sprite>
+    <sprite>sprites\spr_Menu</sprite>
+    <sprite>sprites\spr_Reset</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bck_1</background>
@@ -50,11 +53,16 @@
     <object>objects\obj_Wall</object>
     <object>objects\obj_Star</object>
     <object>objects\obj_TutorialText</object>
+    <object>objects\obj_Menu</object>
+    <object>objects\obj_Highscore</object>
+    <object>objects\obj_Leaderboard</object>
+    <object>objects\obj_Reset</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_Main</room>
     <room>rooms\rm_Game</room>
     <room>rooms\rm_Tutorial</room>
+    <room>rooms\rm_HighScore</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

@@ -30,7 +30,10 @@ with(obj_Enemy) instance_destroy();
 // zastavi pohyb pozadia
 background_vspeed[0] = 0;
 // nastavi premennu ended objektu obj_Sherif na true
-with(obj_Sherif) ended = true;
+with(obj_Sherif) tutor = 1;
+var name = get_string("What do you want to be known as?", "");
+highscore_add(name, score);
+instance_create(640, 1184, obj_Menu);
 </string>
           </argument>
         </arguments>

@@ -102,41 +102,22 @@
     case 7:
         image_index++;
         with(obj_Sherif) {
-            tutor=0;
             image_speed=1;
         }
         with(obj_Mayor) {
             image_speed=1;
         }
+        background_vspeed[0] = 2;
+        instance_create(640, 1184, obj_Menu);
+    case 8:
+        with(obj_Sherif) {
+            tutor=0;
+        }
         instance_create(200, -300, obj_Enemy);
         instance_create(500, -500, obj_Enemy);
-        background_vspeed[0] = 2;
-    case 8:
+        instance_destroy();
         break;
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="6" enumb="4">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if (image_index == 8) room_goto(rm_Main);
 </string>
           </argument>
         </arguments>

@@ -17,6 +17,7 @@
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_Sherif</sprite>
+    <sprite>sprites\spr_Sherif2</sprite>
     <sprite>sprites\spr_Mayor</sprite>
     <sprite>sprites\spr_Death</sprite>
     <sprite>sprites\spr_Enemy</sprite>
@@ -57,12 +58,14 @@
     <object>objects\obj_Highscore</object>
     <object>objects\obj_Leaderboard</object>
     <object>objects\obj_Reset</object>
+    <object>objects\obj_test</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_Main</room>
     <room>rooms\rm_Game</room>
     <room>rooms\rm_Tutorial</room>
     <room>rooms\rm_HighScore</room>
+    <room>rooms\rm_test</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

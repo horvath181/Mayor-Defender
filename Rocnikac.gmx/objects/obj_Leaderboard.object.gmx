@@ -25,7 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_font(f_score);
+            <string>// nastavi font na f_score (rovnaky ako skore)
+draw_set_font(f_score);
+// vykresli tabulku top 10 hracov v obdlzniku vymedzenom dvomi bodmi
+// (lavy horny a pravy dolny roh)
 draw_highscore(x+20, y+15, 695, y+695);
 </string>
           </argument>

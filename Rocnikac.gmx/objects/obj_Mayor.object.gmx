@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>tutor=0;
+            <string>// nastavim pomocnu premennu tutor na 0 (rozhoduje o zabitelnosti starostu)
+tutor = 0;
 </string>
           </argument>
         </arguments>

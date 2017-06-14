@@ -25,9 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// nastavi premennu ended na false (hra este neskocila)
-ended = false;
+            <string>// pomocna premenna, obmedzujuca pohyb ci moznost strelby
 tutor = 0;
+// pocitadlo vystrelov a pocitadlo pohybov pre Tutorial
 shotCounter = 0;
 moveCounter = 0;
 </string>
@@ -92,7 +92,7 @@ if(mouse_y &lt; 960 &amp;&amp; (tutor == 0 || tutor == 3)) {
         speed = 90;
     }
 }
-// ak v dolnej casti obrazovky alebo sme v casti tutorialu, kde sa da hybat
+// ak v dolnej casti obrazovky a sme v casti tutorialu, kde sa da hybat
 else if(mouse_y &gt;= 960 &amp;&amp; (tutor == 0 || tutor == 2)) {
 // znic pripadne existujuce instancie pomocneho objektu obj_Wall
     with(obj_Wall) instance_destroy();

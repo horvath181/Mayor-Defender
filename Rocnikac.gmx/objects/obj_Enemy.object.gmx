@@ -31,7 +31,7 @@ var shot;
 // shot nastavime na false
 shot = false;
 // premenna shoot_now oznacuje, kedy ma dana instancia vystrelit, nahodne vygenerujeme
-shoot_now = random(200)+600;
+shoot_now = random(200)+500;
 // nastavim instancii vertikalnu rychlost 10px za krok
 vspeed = 10;
 </string>
@@ -138,7 +138,7 @@ y = 1500;
 // shot nastavim na false
 shot = false;
 // znovu vygenerujem poziciu kedy ma vystrelit
-shoot_now = random(200)+600;
+shoot_now = random(200)+500;
 // umiestnim ho do lavej alebo pravej polovice (aby sa nestretol so starostom)
 temp = irandom(1);
 if(temp == 0) x = random(270) + 20;

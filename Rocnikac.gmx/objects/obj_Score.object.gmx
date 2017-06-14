@@ -31,6 +31,7 @@ score = 0;
 i = 1;
 // sets score font to f_score
 draw_set_font(f_score);
+// pomocna premenna (ohranicuje pribudanie nepriatelov)
 tutor = 0;
 </string>
           </argument>

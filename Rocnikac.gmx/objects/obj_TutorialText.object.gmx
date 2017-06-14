@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_speed=0;
+            <string>// nastavil som rychlost animacie na 0, cize vzdy zobrazuje 1 obrazok z tutorialu
+image_speed=0;
 </string>
           </argument>
         </arguments>
@@ -48,50 +49,69 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>switch(image_index) {
+            <string>// kedze pri kazdom kroku chcem robit nieco ine vytvoril som switch, ktory kontroluje
+// kde sme v tutoriali 
+switch(image_index) {
+    
+    // ak sme na zaciatku
     case 0:
+        // prejdeme na dalsi obrazok
         image_index++;
+        // vytvorime instanciu serifa a nastavime mu: 
         with(instance_create(381,1082,obj_Sherif)) {
+            // aby nestrielal ani sa nehybal a zastavime animaciu
             tutor=1;
             image_speed=0;
         }
         break;
     case 1:
         image_index++;
+        // vytvorime instanciu starostu a nastavime mu:
         with(instance_create(381,868,obj_Mayor)) {
+            // ze sa ho neda zabit a zastavime animaciu
             tutor=1;
             image_speed=0;
         }
         break;
     case 2:
+        // len prejdeme ne dalsi obrazok
         image_index++;
         break;
     case 3:
         image_index++;
+        // vytvorime instanciu banditu, bez pohybu a bez animacie
         with(instance_create(344,143,obj_Enemy)) {
             image_speed=0;
             speed=0;
         }
         break;
     case 4:
+        // odstranime banditu
         with(obj_Enemy) instance_destroy();
         image_index++;
+        // serifa posunieme do dalsieho stupna tutorialu (moze sa len hybat)
         with(obj_Sherif) tutor=2;
         break;
     case 5:
         with(obj_Sherif) {
+            // ak sa hrac so serifom uspesne 3-krat pohol, serif sa znovu nemoze hybat a
+            // cakame na dalsie tuknutie, ktore posunie tutorial do dalsieho kroku
             if moveCounter == 3 {
                 tutor=1;
                 moveCounter++;
             }
             else if moveCounter == 4 {
+                // ak sme sa daneho tuknutia dockali, pripravime serifa na dalsi stupen
+                // tutorialu , teraz moze len strielat
                 tutor=3;
+                // a posunieme sa dalej
                 with(obj_TutorialText) image_index++;
             }
         }
         break;
     case 6:
         with(obj_Sherif) {
+            // ak hrac 3-krat vystrelil, cakame rovanko ako pri pohybe
             if shotCounter==3 {
                 shotCounter++;
                 tutor=1;
@@ -100,6 +120,8 @@
         }
         break;
     case 7:
+        // na konci spustime animacie serifa, starostu aj pozadia a pridame tlacidlo
+        // navratu do hlavneho menu
         image_index++;
         with(obj_Sherif) {
             image_speed=1;
@@ -110,11 +132,14 @@
         background_vspeed[0] = 2;
         instance_create(640, 1184, obj_Menu);
     case 8:
+        // teraz sa nachadzame v testovacej zone, kde chodia len 2 banditi
+        // tu si moze hrac vyskusat ako prebieha hra (starostu sa tu neda zabit)
         with(obj_Sherif) {
             tutor=0;
         }
         instance_create(200, -300, obj_Enemy);
         instance_create(500, -500, obj_Enemy);
+        // znicime instanciu objektu tutorial, aby zbytocne nezaberala miesto v pamati
         instance_destroy();
         break;
 }

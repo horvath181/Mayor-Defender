@@ -29,10 +29,15 @@
 with(obj_Enemy) instance_destroy();
 // zastavi pohyb pozadia
 background_vspeed[0] = 0;
-// nastavi premennu ended objektu obj_Sherif na true
+// nastavi premennu tutor objektu obj_Sherif na 1 (cize nemoze strielat, ani hybat sa)
 with(obj_Sherif) tutor = 1;
-var name = get_string("What do you want to be known as?", "");
-highscore_add(name, score);
+if score &gt; 0 {
+    // vypyta si od hraca meno do tabulky highscore
+    var name = get_string("What do you want to be known as?", "");
+    // pridava len hracov, ktori zadali meno (vyber do highscore je vramci funkcie implementovanej vo frameworku)
+    if(name != '') highscore_add(name, score);
+}
+// vytvori instanciu tlacitka pre prechod do hlavneho menu
 instance_create(640, 1184, obj_Menu);
 </string>
           </argument>

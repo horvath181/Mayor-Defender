@@ -5,7 +5,7 @@ Snazil som sa vsetok kod pisat v "Create a piece of code", ostatne je pisane v h
 ### rm_Main (creation code):
 	// ak nehra hudba v pozadi, spusti ju
 	if(!audio_is_playing(snd_Background)) {
-    	audio_play_sound(snd_Background, 1, true);
+    		audio_play_sound(snd_Background, 1, true);
 	}
 	// nastav vertikalny pohyb pozadia v tejto miestnosti na 2px/krok (t. j. pozadie sa
 	// pohybuje smerom nadol)
@@ -84,8 +84,8 @@ Snazil som sa vsetok kod pisat v "Create a piece of code", ostatne je pisane v h
 			with(obj_Wall) instance_destroy();
 			// vytvor instanciu objektu obj_Wall 15px od miesta tuknutia (sirka serifa je
 			// priblizne 30px)
-    	if(mouse_x > x) temp_x = mouse_x + 15;
-    	else temp_x = mouse_x - 15;
+    			if(mouse_x > x) temp_x = mouse_x + 15;
+    			else temp_x = mouse_x - 15;
 			instance_create(temp_x, y, obj_Wall);
 			// nastavime smer serifovho pohybu vodorovne k novovytvorenej instancii
 			direction = point_direction(x, y, mouse_x, y);
@@ -115,7 +115,7 @@ Snazil som sa vsetok kod pisat v "Create a piece of code", ostatne je pisane v h
 			// vytvori instanciu objektu obj_End
 			instance_create(290, 568, obj_End);
 			// zmeni sprite na spr_Death
-    	sprite_index = spr_Death;
+    			sprite_index = spr_Death;
 			// raz prehra zvuk smrti
 			audio_play_sound(snd_Dead1, 10, false);
 			// zastavi animaciu serifa
@@ -159,15 +159,15 @@ Snazil som sa vsetok kod pisat v "Create a piece of code", ostatne je pisane v h
 		// irandom vygeneruje nahodne cislo medzi 0-4 (ano aj 4)
 		n = irandom(4);
 		switch(n) {
-    	case 0: audio_play_sound(snd_Dead0, 10, false);
-        break;
-    	case 1: audio_play_sound(snd_Dead1, 10, false);
-        break;
-    	case 2: audio_play_sound(snd_Dead2, 10, false);
-        break;
-    	case 3: audio_play_sound(snd_Dead3, 10, false);
-        break;
-    	default: audio_play_sound(snd_Dead4, 10, false);
+    			case 0: audio_play_sound(snd_Dead0, 10, false);
+        			break;
+    			case 1: audio_play_sound(snd_Dead1, 10, false);
+        			break;
+    			case 2: audio_play_sound(snd_Dead2, 10, false);
+        			break;
+    			case 3: audio_play_sound(snd_Dead3, 10, false);
+        			break;
+    			default: audio_play_sound(snd_Dead4, 10, false);
 		}
 		// znicim instanciu objektu other, co je instancia obj_Bullet, s ktorou kolidujem
 		with(other) instance_destroy();
@@ -278,18 +278,18 @@ Snazil som sa vsetok kod pisat v "Create a piece of code", ostatne je pisane v h
 			// ak sme na zaciatku
 			case 0:
 				// prejdeme na dalsi obrazok
-        image_index++;
-        // vytvorime instanciu serifa a nastavime mu: 
-        with(instance_create(381,1082,obj_Sherif)) {
+				image_index++;
+				// vytvorime instanciu serifa a nastavime mu: 
+				with(instance_create(381,1082,obj_Sherif)) {
 					// aby nestrielal ani sa nehybal a zastavime animaciu
 					tutor=1;
 					image_speed=0;
 				}
-        break;
+        			break;
 			case 1:
-        image_index++;
-        // vytvorime instanciu starostu a nastavime mu:
-        with(instance_create(381,868,obj_Mayor)) {
+        			image_index++;
+        			// vytvorime instanciu starostu a nastavime mu:
+        			with(instance_create(381,868,obj_Mayor)) {
 					// ze sa ho neda zabit a zastavime animaciu
 					tutor=1;
 					image_speed=0;
@@ -302,21 +302,21 @@ Snazil som sa vsetok kod pisat v "Create a piece of code", ostatne je pisane v h
 			case 3:
 				image_index++;
 				// vytvorime instanciu banditu, bez pohybu a bez animacie
-        with(instance_create(344,143,obj_Enemy)) {
+        			with(instance_create(344,143,obj_Enemy)) {
 					image_speed=0;
 					speed=0;
-        }
-        break;
-    	case 4:
-        // odstranime banditu
-        with(obj_Enemy) instance_destroy();
-        image_index++;
-        // serifa posunieme do dalsieho stupna tutorialu (moze sa len hybat)
-        with(obj_Sherif) tutor=2;
-        break;
-    	case 5:
-        with(obj_Sherif) {
-        	// ak sa hrac so serifom uspesne 3-krat pohol, serif sa znovu nemoze hybat a
+        			}
+        			break;
+    			case 4:
+        			// odstranime banditu
+        			with(obj_Enemy) instance_destroy();
+        			image_index++;
+        			// serifa posunieme do dalsieho stupna tutorialu (moze sa len hybat)
+        			with(obj_Sherif) tutor=2;
+        			break;
+    			case 5:
+        			with(obj_Sherif) {
+        				// ak sa hrac so serifom uspesne 3-krat pohol, serif sa znovu nemoze hybat a
 					// cakame na dalsie tuknutie, ktore posunie tutorial do dalsieho kroku
 					if moveCounter == 3 {
 						tutor=1;
@@ -329,8 +329,8 @@ Snazil som sa vsetok kod pisat v "Create a piece of code", ostatne je pisane v h
 						// a posunieme sa dalej
 						with(obj_TutorialText) image_index++;
 					}
-        }
-        break;
+        			}
+        			break;
 			case 6:
 				with(obj_Sherif) {
 					// ak hrac 3-krat vystrelil, cakame rovanko ako pri pohybe
@@ -340,30 +340,30 @@ Snazil som sa vsetok kod pisat v "Create a piece of code", ostatne je pisane v h
 					}
 					else if shotCounter==4 with(obj_TutorialText) image_index++;
 				}
-			break;
-		case 7:
-			// na konci spustime animacie serifa, starostu aj pozadia a pridame tlacidlo
-			// navratu do hlavneho menu
-			image_index++;
-      with(obj_Sherif) {
-      	image_speed=1;
-			}
-      with(obj_Mayor) {
-      	image_speed=1;
-			}
-      background_vspeed[0] = 2;
-      instance_create(640, 1184, obj_Menu);
-		case 8:
-			// teraz sa nachadzame v testovacej zone, kde chodia len 2 banditi
-      // tu si moze hrac vyskusat ako prebieha hra (starostu sa tu neda zabit)
-      with(obj_Sherif) {
-				tutor=0;
-			}
-      instance_create(200, -300, obj_Enemy);
-      instance_create(500, -500, obj_Enemy);
-      // znicime instanciu objektu tutorial, aby zbytocne nezaberala miesto v pamati
-			instance_destroy();
-      break;
+				break;
+			case 7:
+				// na konci spustime animacie serifa, starostu aj pozadia a pridame tlacidlo
+				// navratu do hlavneho menu
+				image_index++;
+      				with(obj_Sherif) {
+      					image_speed=1;
+				}
+      				with(obj_Mayor) {
+      					image_speed=1;
+				}
+      				background_vspeed[0] = 2;
+      				instance_create(640, 1184, obj_Menu);
+			case 8:
+				// teraz sa nachadzame v testovacej zone, kde chodia len 2 banditi
+      				// tu si moze hrac vyskusat ako prebieha hra (starostu sa tu neda zabit)
+      				with(obj_Sherif) {
+					tutor=0;
+				}
+      				instance_create(200, -300, obj_Enemy);
+      				instance_create(500, -500, obj_Enemy);
+      				// znicime instanciu objektu tutorial, aby zbytocne nezaberala miesto v pamati
+				instance_destroy();
+      				break;
 		}
 
 ### obj_End:

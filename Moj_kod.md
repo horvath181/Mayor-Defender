@@ -1,7 +1,7 @@
 Rychlost miestnosti je nastavena na 30, t. j. jedna sekunda predstavuje 30 krokov
 Snazil som sa vsetok kod pisat v "Create a piece of code", ostatne je pisane v hranatych zatvorkach "[", "]" a vysvetlene.
 
-rm_Main (creation code):
+### rm_Main (creation code):
 // ak nehra hudba v pozadi, spusti ju
 if(!audio_is_playing(snd_Background)) {
     audio_play_sound(snd_Background, 1, true);
@@ -12,7 +12,7 @@ background_vspeed[0] = 2;
 // pomocna premenna, oznacujuca koniec hry
 ended = false;
 
-rm_Game (creation code):
+### rm_Game (creation code):
 randomize();
 // vytvorim dve instancie objektu obj_Enemy nad viditelnou castou obrazu
 instance_create(random(200)+60, -200, obj_Enemy);
@@ -20,38 +20,37 @@ instance_create(random(200)+60, -400, obj_Enemy);
 // vertikalny pohyb pozadia
 background_vspeed[0] = 2;
 
-rm_Tutorial (creation code):
+### rm_Tutorial (creation code):
 // zastavi animaciu postav Mayor a Sherif
 with(obj_Mayor) image_speed = 0;
 with(obj_Sherif) image_speed = 0;
 // prepne sa do modu pre prvu cast tutorialu (neda sa strielat, hybat, ...)
 with(obj_Score) tutor = 1;
 
-rm_HighScore (creation code):
+### rm_HighScore (creation code):
 // nastavim verikalny pohyb pozadia
 background_vspeed[0] = 2;
 rm_test nema creation code
 
-obj_Bullet:
- * Create event:
+### obj_Bullet:
+* Create event:
 // raz prehra zvuk snd_Pistol
 audio_play_sound(snd_Pistol, 10, false);
-
- * Outside Room event:
+* Outside Room event:
 // znici instanciu objektu obj_Bullet
 instance_destroy();
 
-obj_enmBullet - rovnako ako obj_Bullet (zabezpecuje aby sa nepriatelia nestrielali medzi sebou)
+### obj_enmBullet
+* rovnako ako obj_Bullet (zabezpecuje aby sa nepriatelia nestrielali medzi sebou)
 
-obj_Sherif:
- * Create event:
+### obj_Sherif:
+* Create event:
 // pomocna premenna, obmedzujuca pohyb ci moznost strelby
 tutor = 0;
 // pocitadlo vystrelov a pocitadlo pohybov pre Tutorial
 shotCounter = 0;
 moveCounter = 0;
-
- * Collision with obj_Wall event:
+* Collision with obj_Wall event:
 // zastavi pohyb serifa
 speed = 0;
 // znici instanciu, s ktorou sa zrazil, t. j. stenu vytvorenu pri zaciatku pohybu
@@ -59,8 +58,7 @@ with(other) instance_destroy();
 // ak som v casti tutorialu, kde sa nehybe pozadie, t.j. tutorial pohybu, tak zastavi
 // animaciu
 if (background_vspeed[0] == 0) image_speed = 0;
-
- * Global Left Pressed event:
+* Global Left Pressed event:
 // ak sme tukli v hornej casti miestnosti a sme v casti tutorialu, kde sa da
 // strielat
 if(mouse_y < 960 && (tutor == 0 || tutor == 3)) {
@@ -90,18 +88,16 @@ else if(mouse_y >= 960 && (tutor == 0 || tutor == 2)) {
     moveCounter++;
 }
 
-obj_Mayor:
- * Create event:
+### obj_Mayor:
+* Create event:
 // nastavim pomocnu premennu tutor na 0 (rozhoduje o zabitelnosti starostu)
 tutor = 0;
-
- * Step event:
+* Step event:
 // ked sa animacia dostane na obrazok 33, zastavi sa
 // animacia chodze ma 17 obrazkov, cize pocas tejto animacie sa nezastavi, az ked zmenime
 // Sprite na spr_Death
 if image_index == 33 then image_speed = 0;
-
- * Collision with obj_Bullet event:
+* Collision with obj_Bullet event:
 // znici instanciu, s ktorou sa zrazil
 with(obj_Bullet) instance_destroy();
 if tutor==0 {
@@ -114,11 +110,11 @@ if tutor==0 {
 // zastavi animaciu serifa
     with(obj_Sherif) image_speed = 0;
 }
+* Collision with obj_enmBullet event
+* rovnako ako pre obj_Bullet (len namiesto with(obj_Bullet) pouzivam with(obj_enmBullet))
 
- * Collision with obj_enmBullet event - rovnako ako pre obj_Bullet (len namiesto with(obj_Bullet) pouzivam with(obj_enmBullet))
-
-obj_Enemy:
- * Create event:
+### obj_Enemy:
+* Create event:
 randomize();
 // lokalna premenna shot oznacuje, ci dana instancia objektu uz vystrelila
 var shot;
@@ -128,8 +124,7 @@ shot = false;
 shoot_now = random(200)+500;
 // nastavim instancii vertikalnu rychlost 10px za krok
 vspeed = 10;
-
- * Step event:
+* Step event:
 // ak uz ma strielat a este nevystrelil, tak vystreli (raz) objekt obj_enmBullet (aby sa
 // nestrielali medzi sebou)
 if ((y > shoot_now) && !shot) {
@@ -142,8 +137,7 @@ if ((y > shoot_now) && !shot) {
 // uz vystrelil
     shot = true;
 }
-
- * Collision with obj_Bullet event:
+* Collision with obj_Bullet event:
 // zvysim skore
 score += 10;
 // prehram nahodne vybrany zvuk umierania
@@ -166,8 +160,7 @@ with(other) instance_destroy();
 shot = true;
 // presuniem instanciu mimo miestnost
 y = 1500;
-
- * Outside Room event:
+* Outside Room event:
 randomize();
 // shot nastavim na false
 shot = false;
@@ -180,8 +173,8 @@ else x = random(300) + 440;
 // y nastavim na -200, kedze ma nastaveny vspeed, tak zide dole
 y = -200;
 
-obj_Score:
- * Create event:
+### obj_Score:
+* Create event:
 // set score value to 0
 score = 0;
 // counter of bonus enemies
@@ -190,72 +183,70 @@ i = 1;
 draw_set_font(f_score);
 // pomocna premenna (ohranicuje pribudanie nepriatelov)
 tutor = 0;
-
- * Step event:
+* Step event:
 // pri kazdej stovke zvysim pocet nepriatelov o 1
 if(score == i*100 && tutor == 0) {
     i++;
     instance_create(100, 1500, obj_Enemy);
 }
-
- * Draw event:
+* Draw event:
 // vykresli hodnotu skore na poziciu x = 10, y = 5 s prefixom "Score:"
 [Draw the value of score]
 
-obj_Star:
- * Left Pressed event:
+### obj_Star:
+* Left Pressed event:
 // pouzival som na presun do testovacej miestnosti (testovanie animacie, zvuku, ...)
 //room_goto(rm_test);
 
-obj_Play:
- * Left Pressed event:
+### obj_Play:
+* Left Pressed event:
 // presunie hraca do miestnosti rm_Game
 room_goto(rm_Game);
 
-obj_Highscore:
- * Left Pressed event:
+### obj_Highscore:
+* Left Pressed event:
 // presunie hraca do miestnosti rm_HighScore
 room_goto(rm_HighScore);
-obj_Tutorial:
- * Left Pressed event:
+
+### obj_Tutorial:
+* Left Pressed event:
 // presunie hraca do miestnosti tutorialu
 room_goto(rm_Tutorial);
 
-obj_Quit:
- * Left Pressed event:
+### obj_Quit:
+* Left Pressed event:
 // ukonci hru
 game_end();
 
-obj_Menu:
- * Left Pressed event:
+### obj_Menu:
+* Left Pressed event:
 // presunie hraca do hlavnej ponuky
 room_goto(rm_Main);
 
-obj_Leaderboard:
- * Draw event:
+### obj_Leaderboard:
+* Draw event:
 // nastavi font na f_score (rovnaky ako skore)
 draw_set_font(f_score);
 // vykresli tabulku top 10 hracov v obdlzniku vymedzenom dvomi bodmi
 // (lavy horny a pravy dolny roh)
 draw_highscore(x+20, y+15, 695, y+695);
 
-obj_Reset:
- * Left Pressed event:
+### obj_Reset:
+* Left Pressed event:
 // vypyta si heslo na resetovanie tabulky HighScore
 var ans = get_string("What's the password?", "");
 // heslo je "Answer", skontrolujem a vycistim tabulku
 if ans == "Answer" highscore_clear();
 
-obj_TutorialText:
- * Create event:
+### obj_TutorialText:
+* Create event:
 // nastavil som rychlost animacie na 0, cize vzdy zobrazuje 1 obrazok z tutorialu
 image_speed=0;
 
- * Global Left Pressed event:
+* Global Left Pressed event:
 // kedze pri kazdom kroku chcem robit nieco ine vytvoril som switch, ktory kontroluje
 // kde sme v tutoriali 
-switch(image_index) {
-    
+switch(image_index) {    
     // ak sme na zaciatku
     case 0:
         // prejdeme na dalsi obrazok
@@ -347,8 +338,8 @@ switch(image_index) {
         break;
 }
 
-obj_End:
- * Create event:
+### obj_End:
+* Create event:
 // znici instancie objektu obj_Enemy
 with(obj_Enemy) instance_destroy();
 // zastavi pohyb pozadia
@@ -364,15 +355,16 @@ if score > 0 {
 // vytvori instanciu tlacitka pre prechod do hlavneho menu
 instance_create(640, 1184, obj_Menu);
 
- * Draw event:
+* Draw event:
 // najprv vykresli seba
 draw_self();
 // vykresli hodnotu skore na poziciu x, y objectu obj_End s prefixom "Score:" (x, y nie su v strede, ani lavy horny roh, nastavenie vramci GameMaker, presna pozicia)
 [Draw the value of score]
 
-obj_Wall (pomocny, neviditelny objekt na zastavenie pohybu serifa):
- * Collision with obj_sherif event:
+### obj_Wall (pomocny, neviditelny objekt na zastavenie pohybu serifa):
+* Collision with obj_sherif event:
 // znici instanciu objektu obj_Wall
 instance_destroy();
 
-obj_test neobsahuje ziadny kod, posledny test tvorila animacia postavy
+### obj_test
+* neobsahuje ziadny kod, posledny test tvorila animacia postavy
